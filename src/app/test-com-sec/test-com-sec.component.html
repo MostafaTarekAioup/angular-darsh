@@ -1,2 +1,22 @@
 <p>test-com-sec works!</p>
 <app-test-com></app-test-com>
+<h1>{{ firstName() }}</h1>
+
+<!-- if else statement in angular -->
+@if(!isDisabled()){
+<!-- // add click event and add conditional attribute  -->
+<!-- add prop to function  -->
+<button (click)="displayName('darshoossss')" [disabled]="isDisabled()">
+  Display Name
+</button>
+}@else {
+<a>No button</a>
+}
+<button (click)="disableButton()">disable</button>
+
+<!-- // for loop in angular -->
+<div>
+  @for (name of namesList(); track $index) {
+  <h2>{{ name }}</h2>
+  }
+</div>
