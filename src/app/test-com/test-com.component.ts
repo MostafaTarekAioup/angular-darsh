@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Calculator } from '../../services/calculator';
 
 @Component({
@@ -12,8 +12,14 @@ import { Calculator } from '../../services/calculator';
 export class TestComComponent {
   // add prop to component with initial value
   @Input() startValue = '';
+
+  // When working with components it may be required to notify other components that something has happened. Perhaps a button has been clicked, an item has been added/removed from a list or some other important update has occurred. In this scenario components need to communicate with parent components.
+  @Output() increaseCount = 10;
   private calc = inject(Calculator);
   totalCost = this.calc.add(50, 10);
 
-  constructor() {}
+  addEvent() {
+    this.increaseCount += 1;
+    console.log(this.increaseCount);
+  }
 }
