@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Calculator } from '../../services/calculator';
 
 @Component({
@@ -10,11 +10,10 @@ import { Calculator } from '../../services/calculator';
   styleUrl: './test-com.component.scss',
 })
 export class TestComComponent {
+  // add prop to component with initial value
+  @Input() startValue = '';
   private calc = inject(Calculator);
   totalCost = this.calc.add(50, 10);
 
-  constructor() {
-    console.log('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww333');
-    console.log('🚀 ~ TestComComponent ~ totalCost:', this.totalCost);
-  }
+  constructor() {}
 }
